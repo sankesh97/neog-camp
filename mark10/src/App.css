@@ -44,3 +44,9 @@ tr {
 td {
   padding: 10px;
 }
+
+@media (max-width: 768px) {
+  td {
+    padding: 2px;
+  }
+}
