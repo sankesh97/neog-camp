@@ -51,7 +51,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Cash Register Manager</h1>
+      <header>
+        <h1>Cash Register Manager</h1>
+      </header>
       <p>
         Enter the bill amount and cash given by the customer and know minimum
         number of notes to return.
@@ -99,6 +101,9 @@ function App() {
           </tr>
         </tbody>
       </table>
+      <footer>
+        <p>30th Jul 2022 | Sankesh Jain</p>
+      </footer>
     </div>
   );
 }
