@@ -35,7 +35,9 @@ function App() {
 
   const returnCalculateHandler = () => {
     if (billAmount.current.value === "" || cashGiven.current.value === "") {
-      setOutputText("Bro, Did you forget to enter the amount ?");
+      setOutputText(
+        "Bro, Did you forget to enter the amount ? / Invalid Amount"
+      );
     } else if (cashGiven.current.value > 50000) {
       setOutputText(
         "Kala Dhan Detected, Calling Modi ji! (You are not allowed to use cash more than 50,000)"
