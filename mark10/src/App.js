@@ -34,7 +34,11 @@ function App() {
   const [outputText, setOutputText] = useState("");
 
   const returnCalculateHandler = () => {
-    if (billAmount.current.value === "" || cashGiven.current.value === "") {
+    if (
+      billAmount.current.value === "" ||
+      cashGiven.current.value === "" ||
+      cashGiven.current.value < billAmount.current.value
+    ) {
       setOutputText(
         "Bro, Did you forget to enter the amount ? / Invalid Amount"
       );
