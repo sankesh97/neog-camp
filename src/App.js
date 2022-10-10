@@ -9,7 +9,7 @@ const calculateFunc = (cashGiven, billAmount) => {
       tempChange[i] = Math.floor(tempValue / i);
       console.log("tempChange" + tempChange[i]);
       tempValue -= tempChange[i] * i;
-      console.log(tempValue);
+      console.log(tempChange);
     } else {
       tempChange[i] = 0;
     }
@@ -34,13 +34,25 @@ function App() {
   const [outputText, setOutputText] = useState("");
 
   const returnCalculateHandler = () => {
+    setOutputText("");
+    setReturnChange({
+      2000: 0,
+      500: 0,
+      100: 0,
+      50: 0,
+      20: 0,
+      10: 0,
+      5: 0,
+      2: 0,
+      1: 0,
+    });
     if (
-      billAmount.current.value === "" ||
-      cashGiven.current.value === "" ||
-      cashGiven.current.value < billAmount.current.value
+      !billAmount.current.value ||
+      !cashGiven.current.value ||
+      parseInt(cashGiven.current.value) < parseInt(billAmount.current.value)
     ) {
       setOutputText(
-        "Bro, Did you forget to enter the amount ? / Invalid Amount"
+        "Bro, Did you forget to enter the amount or entered an Invalid Amount. Please check again "
       );
     } else if (cashGiven.current.value > 50000) {
       setOutputText(
@@ -48,7 +60,10 @@ function App() {
       );
     } else {
       setReturnChange(
-        calculateFunc(cashGiven.current.value, billAmount.current.value)
+        calculateFunc(
+          parseInt(cashGiven.current.value),
+          parseInt(billAmount.current.value)
+        )
       );
     }
     billAmount.current.value = "";
